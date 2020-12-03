@@ -21,3 +21,8 @@ Blazor에는 두 가지의 호스팅 모델이 있습니다.
 **Blazor Server와 Blazor WASM은 모두 장단점이 있기 때문에 개발 목적에 맞게 선택하면 됩니다.**   
 **많은 수의 사용자가 사용하며, 민감한 코드가 있어 숨기지 않는 경우 - WASM   
 성능이 중요하며, 브라우저에서 실행하지않고 싶은 민감한 코드가 있는 경우 - Server**
+# 3. Blazor 시작하기
+이 글은 Windows10 Visual Studio 2019를 기반으로 작성되는 글입니다.
+* [.NET Core 2.1 SDK 또는 이후 버전](https://dotnet.microsoft.com/download/dotnet-core)
+* [Visual Studio 15.7 또는 이후 버전](https://visualstudio.microsoft.com/)
+# 4. Application 생성
