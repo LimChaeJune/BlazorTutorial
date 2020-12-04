@@ -16,7 +16,13 @@ Blazor에는 두 가지의 호스팅 모델이 있습니다.
 * Server측은 HTML소스가 클라이언트의 브라우저로 전송되기 전에 미리 렌더링되기 때문에 WASM보다 빠른 로딩이 가능합니다.
 * C# 코드가 브라우저로 전송되지 않고, 서버측에서 실행되기 때문에 Visual Studio를 통한 .NET 코드 디버깅이 제한이 적습니다.
 * WASM은 최신 브라우저에서만 작동하기 때문에 IE 11과 같은 브라우저를 지원하지 않지만, Server측은 지원합니다.
-* Server측은 현재 클라이언트에 대한 메모리 내 세션을 설정하고 SignalR을 사용하여 서버에서 실행되는 .NET과 클라이언트의 브라우저 간 통신하기 때문에 모든 메모리 및 CPU 사용량은 모든 사용자에 대한 서버 비용으로 발생합니다.
+* Server측은 현재 클라이언트에 대한 메모리 내 세션을 설정하고 SignalR을 사용하여 서버에서 실행되는 .NET과 클라이언트의 브라우저 간 통신하기 때문에 모든 메모리 및 CPU 사용량은 모든 사용자에 대한 서버 비용으로 발생합니다.   
+## 2.3 Signal R
+Blazor을 알아가면서 앞으로 SignalR이란 이름을 자주 마주하게 될 것 입니다.   
+그래서 먼저 설명을 하자면 SignalR은 응용 프로그램에 실시간 웹 기능을 추가하는 프로세스를 단순화하는 ASP.NET 개발자 용 라이브러리입니다.   
+실시간 웹 기능이란 서버 측의 코드가 실시간으로 콘테츠를 사용할 수 있게되는 즉시 연결된 클라이언트의 푸시되도록 하는 기능입니다.   
+이 오픈소스는 Blazor를 알아보는 것이 목적이니 이정도로 간단히 설명하고 넘어가겠습니다.   
+SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr)과 [GitHub](https://github.com/dotnet/aspnetcore/tree/master/src/SignalR)를 통해 더욱 자세한 정보를 알아볼 수 있습니다.
 - - -
 **Blazor Server와 Blazor WASM은 모두 장단점이 있기 때문에 개발 목적에 맞게 선택하면 됩니다.**   
 **많은 수의 사용자가 사용하며, 민감한 코드가 있어 숨기지 않는 경우 - WASM   
@@ -26,3 +32,9 @@ Blazor에는 두 가지의 호스팅 모델이 있습니다.
 * [.NET Core 2.1 SDK 또는 이후 버전](https://dotnet.microsoft.com/download/dotnet-core)
 * [Visual Studio 15.7 또는 이후 버전](https://visualstudio.microsoft.com/)
 # 4. Application 생성
+먼저 아래 사진처럼 블레이저를 선택합니다.
+![start](https://user-images.githubusercontent.com/30399915/101181964-da43d080-3690-11eb-9d89-c6aa5370df5a.png)
+여기서 Server로 생성할 것인지 WASM을 생성할건지 선택할 수 있습니다.
+![server](https://user-images.githubusercontent.com/30399915/101181969-dadc6700-3690-11eb-9421-0b52eccea163.png)
+프로젝트를 생성하고 처음 실행을 했을 때 페이지 화면입니다.
+![builde](https://user-images.githubusercontent.com/30399915/101181972-db74fd80-3690-11eb-8688-c93f0ba2f6c1.png)
