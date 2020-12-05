@@ -31,7 +31,18 @@ SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet
 이 글은 Windows10 Visual Studio 2019를 기반으로 작성되는 글입니다.
 * [.NET Core 2.1 SDK 또는 이후 버전](https://dotnet.microsoft.com/download/dotnet-core)
 * [Visual Studio 15.7 또는 이후 버전](https://visualstudio.microsoft.com/)
-# 4. Application 생성
+# 4. Blaozr Tutorial의 목차
+* Aplication 생성   
+* Blazor Layout   
+* Blazor Components     
+* Blazor Binding   
+* Blazor Parameter   
+* Blazor Routing   
+* Blazor JavaScript   
+* Blazor Dependency Inject   
+* Blazor Entity Framework   
+* Blazor Authorize   
+## 4.1. Application 생성
 먼저 아래 사진처럼 블레이저를 선택합니다.
 ![start](https://user-images.githubusercontent.com/30399915/101181964-da43d080-3690-11eb-9d89-c6aa5370df5a.png)
 여기서 Server로 생성할 것인지 WASM을 생성할건지 선택할 수 있습니다.
@@ -39,17 +50,16 @@ SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet
 프로젝트를 생성하고 처음 실행을 했을 때 페이지 화면입니다.
 ![builde](https://user-images.githubusercontent.com/30399915/101181972-db74fd80-3690-11eb-8688-c93f0ba2f6c1.png)
 
-## 4.1 Blazor Layout
+## 4.2 Blazor Layout
 블레이저로 프로젝트를 처음 생성하면 Shared파일의 MainLayout.razor에서 소스코드를 변경함으로서 Page의 Layout Template을 작성할 수 있습니다.
 Blazor Layout의 모든 콘텐츠는 LayoutComponent Class의 하위 항목 쓰입니다.  
 Blazor Layout은 Index.razor 페이지 내에서 정의 된 부분만 작동 됩니다.    
 **Index.razor 페이지의 경로 Server(Pages\Index.razor), WASM(wwwroot\index.html)**   
 
 ---
-MainLayout.razor
-<pre>
- <code>
-       @inherits LayoutComponentBase
+MainLayout.razor   
+```XML
+      @inherits LayoutComponentBase
       <div class="sidebar">
           <NavMenu />
       </div>
@@ -63,6 +73,5 @@ MainLayout.razor
               @Body  //이곳의 Index.razor내의 정의된 HTML들이 들어갑니다.
           </div>
       </div>
-  </code>
-</pre>
+```
 
