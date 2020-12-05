@@ -28,10 +28,7 @@ SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet
 **많은 수의 사용자가 사용하며, 민감한 코드가 있어 숨기지 않는 경우 - WASM   
 성능이 중요하며, 브라우저에서 실행하지않고 싶은 민감한 코드가 있는 경우 - Server**
 # 3. Blazor 시작하기
-이 글은 Windows10 Visual Studio 2019를 기반으로 작성되는 글입니다.
-* [.NET Core 2.1 SDK 또는 이후 버전](https://dotnet.microsoft.com/download/dotnet-core)
-* [Visual Studio 15.7 또는 이후 버전](https://visualstudio.microsoft.com/)
-# 4. Blaozr Tutorial의 목차
+* Blazor 필수사항
 * Aplication 생성   
 * Blazor Layout   
 * Blazor Components     
@@ -42,7 +39,12 @@ SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet
 * Blazor Dependency Inject   
 * Blazor Entity Framework   
 * Blazor Authorize   
-## 4.1. Application 생성
+위의 단계는 Blazor Server 프로젝트로 진행됩니다. (추후에 WASM 추가할 예정입니다.)
+## 3.1 Blazor 필수사항
+이 글은 Windows10 Visual Studio 2019를 기반으로 작성되는 글입니다.
+* [.NET Core 2.1 SDK 또는 이후 버전](https://dotnet.microsoft.com/download/dotnet-core)
+* [Visual Studio 15.7 또는 이후 버전](https://visualstudio.microsoft.com/)
+## 3.2. Application 생성
 먼저 아래 사진처럼 블레이저를 선택합니다.
 ![start](https://user-images.githubusercontent.com/30399915/101181964-da43d080-3690-11eb-9d89-c6aa5370df5a.png)
 여기서 Server로 생성할 것인지 WASM을 생성할건지 선택할 수 있습니다.
@@ -50,7 +52,7 @@ SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet
 프로젝트를 생성하고 처음 실행을 했을 때 페이지 화면입니다.
 ![builde](https://user-images.githubusercontent.com/30399915/101181972-db74fd80-3690-11eb-8688-c93f0ba2f6c1.png)
 
-## 4.2 Blazor Layout
+## 3.3 Blazor Layout
 블레이저로 프로젝트를 처음 생성하면 Shared파일의 MainLayout.razor에서 소스코드를 변경함으로서 Page의 Layout Template을 작성할 수 있습니다.
 Blazor Layout의 모든 콘텐츠는 LayoutComponent Class의 하위 항목 쓰입니다.  
 Blazor Layout은 Index.razor 페이지 내에서 정의 된 부분만 작동 됩니다.    
