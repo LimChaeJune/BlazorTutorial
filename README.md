@@ -29,7 +29,7 @@ SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet
 성능이 중요하며, 브라우저에서 실행하지않고 싶은 민감한 코드가 있는 경우 - Server**
 # 3. Blazor 시작하기
 * Blazor 필수사항
-* Aplication 생성   
+* Blazor Project 생성   
 * Blazor 프로젝트 구조
 * Blazor Layout   
 * Blazor Components     
@@ -55,31 +55,89 @@ SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet
 ![builde](https://user-images.githubusercontent.com/30399915/101181972-db74fd80-3690-11eb-8688-c93f0ba2f6c1.png)
 
 ## 3.3. Blazor 프로젝트 구조
-Blazor Server은 기본적으로 ASP.NET CORE의 구조를 따라갑니다.
+Blazor Server은 기본적으로 ASP.NET CORE의 구조와 동일합니다.
+   
+### 3.3.1 Startup.cs
+앱의 시작 논리를 포함하는 클래스입니다. StartUp 클래스는 생성 시에 두 가지 메서드를 정의합니다.    
+* ConfigureServices: 앱의 DI(Depedency Inject) 서비스를 구성합니다. (ex: DBContenxt, Authorize, API, Service 등) Blazor Server에서는 AddServerSideBlazor 메소드를 호출한 뒤(AddSigleton , AddScoped, AddTransient)등의 방법으로 Service가 추가하면 앱의 Service 컨테이너에 추가되면서 Component에서 Service를 Inject하여 사용할 수 있습니다.   
+   
+* Configure: 앱의 요청 처리 파이프 라인을 구성합니다.   
+   
+초기 StartUp.cs의 소스는 아래와 같습니다.   
+   
+`Startup.cs`   
+```
+public class Startup
+{
+    public Startup(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
 
+    public IConfiguration Configuration { get; }
+
+    // This method gets called by the runtime. Use this method to add services to the container.
+    // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddRazorPages();
+        services.AddServerSideBlazor();
+        // 앱의 Dependency Inject 종속성 주입 이 개념은 아래에 설명됩니다.
+        services.AddSingleton<WeatherForecastService>();
+    }
+
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        else
+        {
+            // 앱에서 오류가 발생됐을 때 화면
+            app.UseExceptionHandler("/Error");
+            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            app.UseHsts();
+        }
+
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+
+        app.UseRouting();
+
+        app.UseEndpoints(endpoints =>
+        {
+            // 브라우저와의 실시간 연결을 위한 엔드 포인트를 설정하기 위해 호출됩니다. 연결은 SignalR로 생성됩니다.
+            endpoints.MapBlazorHub();
+            // 앱의 루트 페이지를 설정하고 탐색을 활성화합니다. 
+            endpoints.MapFallbackToPage("/_Host");
+        });
+    }
+}
+```
 
 ## 3.4. Blazor Layout
 블레이저로 프로젝트를 처음 생성하면 Shared파일의 MainLayout.razor에서 소스코드를 변경함으로서 Page의 Layout Template을 작성할 수 있습니다.
 Blazor Layout의 모든 콘텐츠는 LayoutComponent Class의 하위 항목 쓰입니다.  
 Blazor Layout은 Index.razor 페이지 내에서 정의 된 부분만 작동 됩니다.    
-**Index.razor 페이지의 경로 Server(Pages\Index.razor), WASM(wwwroot\index.html)**   
 
 ---
-MainLayout.razor   
+`MainLayout.razor`   
 ```XML
-      @inherits LayoutComponentBase
-      <div class="sidebar">
-          <NavMenu />
-      </div>
+@inherits LayoutComponentBase
+<div class="sidebar">
+    <NavMenu />
+</div>
 
-      <div class="main">
-          <div class="top-row px-4">
-              <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-          </div>
+<div class="main">
+    <div class="top-row px-4">
+        <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+    </div>
 
-          <div class="content px-4">
-              @Body  //이곳의 Index.razor내의 정의된 HTML들이 들어갑니다.
-          </div>
-      </div>
+    <div class="content px-4">
+        @Body  //이곳의 Index.razor내의 정의된 HTML들이 들어갑니다.
+    </div>
+</div>
 ```
 
