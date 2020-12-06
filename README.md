@@ -122,7 +122,6 @@ public class Startup
 Blazor Layout의 모든 콘텐츠는 LayoutComponent Class의 하위 항목 쓰입니다.  
 Blazor Layout은 Index.razor 페이지 내에서 정의 된 부분만 작동 됩니다.    
 
----
 `MainLayout.razor`   
 ```XML
 @inherits LayoutComponentBase
