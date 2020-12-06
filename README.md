@@ -66,7 +66,7 @@ Blazor Server은 기본적으로 ASP.NET CORE의 구조와 동일합니다.
 초기 StartUp.cs의 소스는 아래와 같습니다.   
    
 `Startup.cs`   
-```
+```csharp
 public class Startup
 {
     public Startup(IConfiguration configuration)
