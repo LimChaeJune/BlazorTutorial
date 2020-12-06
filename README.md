@@ -30,6 +30,7 @@ SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet
 # 3. Blazor 시작하기
 * Blazor 필수사항
 * Aplication 생성   
+* Blazor 프로젝트 구조
 * Blazor Layout   
 * Blazor Components     
 * Blazor Binding   
@@ -53,7 +54,11 @@ SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet
 프로젝트를 생성하고 처음 실행을 했을 때 페이지 화면입니다.
 ![builde](https://user-images.githubusercontent.com/30399915/101181972-db74fd80-3690-11eb-8688-c93f0ba2f6c1.png)
 
-## 3.3 Blazor Layout
+## 3.3. Blazor 프로젝트 구조
+Blazor Server은 기본적으로 ASP.NET CORE의 구조를 따라갑니다.
+
+
+## 3.4. Blazor Layout
 블레이저로 프로젝트를 처음 생성하면 Shared파일의 MainLayout.razor에서 소스코드를 변경함으로서 Page의 Layout Template을 작성할 수 있습니다.
 Blazor Layout의 모든 콘텐츠는 LayoutComponent Class의 하위 항목 쓰입니다.  
 Blazor Layout은 Index.razor 페이지 내에서 정의 된 부분만 작동 됩니다.    
