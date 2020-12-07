@@ -29,7 +29,6 @@ SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet
 성능이 중요하며, 브라우저에서 실행하지않고 싶은 민감한 코드가 있는 경우 - Server**
 # 3. Blazor 시작하기
 * Blazor 필수사항
-* Blazor Project 생성   
 * Blazor 프로젝트 구조
 * Blazor Layout   
 * Blazor Components     
@@ -46,18 +45,10 @@ SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet
 이 글은 Windows10 Visual Studio 2019를 기반으로 작성되는 글입니다.
 * [.NET Core 2.1 SDK 또는 이후 버전](https://dotnet.microsoft.com/download/dotnet-core)
 * [Visual Studio 15.7 또는 이후 버전](https://visualstudio.microsoft.com/)
-## 3.2. Application 생성
-먼저 아래 사진처럼 블레이저를 선택합니다.
-![start](https://user-images.githubusercontent.com/30399915/101181964-da43d080-3690-11eb-9d89-c6aa5370df5a.png)
-여기서 Server로 생성할 것인지 WASM을 생성할건지 선택할 수 있습니다.
-![server](https://user-images.githubusercontent.com/30399915/101181969-dadc6700-3690-11eb-9421-0b52eccea163.png)
-프로젝트를 생성하고 처음 실행을 했을 때 페이지 화면입니다.
-![builde](https://user-images.githubusercontent.com/30399915/101181972-db74fd80-3690-11eb-8688-c93f0ba2f6c1.png)
-
-## 3.3. Blazor 프로젝트 구조
+## 3.2. Blazor 프로젝트 구조
 Blazor Server은 기본적으로 ASP.NET CORE의 구조와 동일합니다.
    
-### 3.3.1 Startup.cs
+### 3.2.1 Startup.cs
 앱의 시작 논리를 포함하는 클래스입니다. StartUp 클래스는 생성 시에 두 가지 메서드를 정의합니다.    
 * ConfigureServices: 앱의 DI(Depedency Inject) 서비스를 구성합니다. (ex: DBContenxt, Authorize, API, Service 등) Blazor Server에서는 AddServerSideBlazor 메소드를 호출한 뒤(AddSigleton , AddScoped, AddTransient)등의 방법으로 Service가 추가하면 앱의 Service 컨테이너에 추가되면서 Component에서 Service를 Inject하여 사용할 수 있습니다.   
    
@@ -117,7 +108,7 @@ public class Startup
 }
 ```
 
-## 3.4. Blazor Layout
+## 3.3. Blazor Layout
 블레이저로 프로젝트를 처음 생성하면 Shared파일의 MainLayout.razor에서 소스코드를 변경함으로서 Page의 Layout Template을 작성할 수 있습니다.
 Blazor Layout의 모든 콘텐츠는 LayoutComponent Class의 하위 항목 쓰입니다.  
 Blazor Layout은 Index.razor 페이지 내에서 정의 된 부분만 작동 됩니다.    
