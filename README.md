@@ -40,11 +40,11 @@ SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet
 * Blazor Entity Framework   
 * Blazor Authorize   
 ---
-> **위의 단계는 Blazor Server 프로젝트로 진행됩니다. (추후에 WASM 추가할 예정입니다.)**
+> 위의 단계는 Blazor Server 프로젝트로 진행됩니다. (추후에 WASM 추가할 예정입니다.)
 - ### 3.1 Blazor 필수사항
   이 글은 Windows10 Visual Studio 2019를 기반으로 작성되는 글입니다.
-  * [.NET Core 2.1 SDK 또는 이후 버전](https://dotnet.microsoft.com/download/dotnet-core)
-  * [Visual Studio 15.7 또는 이후 버전](https://visualstudio.microsoft.com/)
+  * .NET Core 2.1 SDK 또는 이후 버전 [여기.](https://dotnet.microsoft.com/download/dotnet-core)
+  * Visual Studio 15.7 또는 이후 버전 [여기.](https://visualstudio.microsoft.com/)
 - ### 3.2. Blazor 프로젝트 구조
   Blazor Server은 기본적으로 ASP.NET CORE의 구조와 동일합니다.
    
