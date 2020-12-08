@@ -1,6 +1,6 @@
 블레이저 듀토리얼
 ================
-# 1. Blazor란?
+## 1. Blazor란?
 > Blazor는 HTML, CSS를 이용해 웹 UI를 구성하고, Javascript대신 C#을 이용한 동적 웹 UI를 빌드할 수 있는 .NET Framework에서 제공하는 ASP.NET Core을 사용하는 도구와 라이브러리가 포함된 웹 프레임워크입니다.   
 HTML과 C#의 결합으로 사용자 입력을 바인딩하고, UI업데이터를 더욱 효율적으로 렌더링할 수 있습니다.   
 **블레이저는 오픈 소스이며 [여기](https://github.com/dotnet/aspnetcore/tree/master/src/Components)에서 사용할 수 있습니다.**
@@ -40,12 +40,12 @@ SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet
 * Blazor Entity Framework   
 * Blazor Authorize   
 ---
-**위의 단계는 Blazor Server 프로젝트로 진행됩니다. (추후에 WASM 추가할 예정입니다.)**
+> **위의 단계는 Blazor Server 프로젝트로 진행됩니다. (추후에 WASM 추가할 예정입니다.)**
 - ### 3.1 Blazor 필수사항
   이 글은 Windows10 Visual Studio 2019를 기반으로 작성되는 글입니다.
   * [.NET Core 2.1 SDK 또는 이후 버전](https://dotnet.microsoft.com/download/dotnet-core)
   * [Visual Studio 15.7 또는 이후 버전](https://visualstudio.microsoft.com/)
-- ## 3.2. Blazor 프로젝트 구조
+- ### 3.2. Blazor 프로젝트 구조
   Blazor Server은 기본적으로 ASP.NET CORE의 구조와 동일합니다.
    
   - #### 3.2.1 Startup.cs
