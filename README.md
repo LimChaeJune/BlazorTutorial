@@ -1,7 +1,7 @@
 블레이저 듀토리얼
 ================
 ## 1. Blazor란?
-Blazor is a free and open-source web framework that enables developers to create web apps using C# and HTML.[1][2][3][4][5][6][excessive citations] It is being developed by Microsoft.
+Blazor is a free and open-source web framework that enables developers to create web apps using C# and HTML. It is being developed by Microsoft.
 - ### 개요
   Blazor는 HTML, CSS를 이용해 웹 UI를 구성하고, Javascript대신 C#을 이용한 동적 웹 UI를 빌드할 수 있는 .NET Framework에서 제공하는 ASP.NET Core을 사용하는 도구와 라이브러리가 포함된 웹 프레임워크입니다. 그리고 HTML과 C#의 결합으로 사용자 입력을 바인딩하고, UI업데이터를 더욱 효율적으로 렌더링할 수 있습니다.   
 
