@@ -57,8 +57,7 @@ TBD...
    
     * Configure: 앱의 요청 처리 파이프 라인을 구성합니다.   
    
-      초기 StartUp.cs의 소스는 아래와 같습니다.   
-   
+      초기 StartUp.cs의 소스는 아래와 같습니다.          
       `Startup.cs`   
       ```csharp
       public class Startup
@@ -76,7 +75,7 @@ TBD...
           {
               services.AddRazorPages();
               services.AddServerSideBlazor();
-              // 앱의 Dependency Inject 종속성 주입 이 개념은 아래에 설명됩니다.
+              // 앱의 Dependency Inject 종속성 주입 -- 이 개념은 아래에 설명됩니다.
               services.AddSingleton<WeatherForecastService>();
           }
 
@@ -110,12 +109,72 @@ TBD...
           }
       }
       ```
-
-  - ### 3.3. Blazor Layout
+  - #### 3.2.2 Program.cs
+  
+    프로젝트에 대한 진입점인 메소드를 포함한 클래스입니다. ASP.NET Core를 호스트합니다.
+    
+  - #### 3.2.3 Pages폴더   
+  
+    Blazor 앱을 구성하는 라우팅 가능한 Razor 페이지와 Blazor 서버 앱 루트 Razor 페이지가 포함됩니다.
+    
+    각 페이지의 경로는 @page 지시문을 이용해 지정할 수 있습니다. 사용법은 아래와 같습니다. 
+    ```
+    @page "/경로이름"
+    ```
+    Blazor Server 프로젝트를 생성했을 때 Pages의 폴더의 템플릿은 다음과 같습니다.
+    
+    * _Host.cshtml: Razor 페이지로 구현된 앱의 루트 페이지 입니다
+      + 앱의 페이지가 처음 요청되면 이 페이지가 렌더링되며 응답합니다.
+      + 루트 App의 구성 요소가 렌더링 되는 위치를 지정합니다.
+      + 기본적으론 `_framework/blazor.server.js` Javascript 파일이 로드되며 브라우저와 서버 간의 실시가 SignalR 연결을 설정하는 JS입니다.
+      + 새로 생성한 js혹은 css, Api 용도의 js 등을 추가할 수 있습니다.
+    * Counter.razor: Blazor 구성요소 Razor 페이지를 통해 카운트 증가가 구현된 페이지입니다.
+    * Error.cshtml: App에서 처리되지 않은 예외가 발생할 때 렌더링 됩니다.
+    * FetchData.razor: StartUp.cs에서 DI로 등록된 Service를 통해 데이터를 가져오는 것이 구현된 페이지입니다.
+    * Index.razor: 홈 페이지를 구현한 페이지입니다. 여느 다른 웹 개발 Index 페이지와 같습니다.
+    
+  - #### 3.2.4 Properties/launchSettings.json
+    
+    개발 환경 구성을 가진 파일입니다. 
+    
+    * [ASP.NET Core의 launchSettings.json](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments?view=aspnetcore-5.0#development-and-launchsettingsjson) 파일과 같으며 시스템 환경에 설정된 값을 재정의할 수 있습니다.
+    * 로컬 개발 머신에서만 사용됩니다.
+    * 배포되지 않습니다.
+    * 여러가지 프로필 설정이 포함되어 있습니다.
+    
+  - #### 3.2.5 Shared폴더
+    
+    razor페이지에서 사용하는 공통 UI 구성 요소를 포함합니다.
+    
+    * MainLayout.razor: 앱의 레이아웃 구성 요소 입니다. 아래에 자세한 설명이있습니다.
+    * NavMenu.razor: 사이드 바 Navigation을 구현합니다. 다른 Razor 쉉요소에 대한 탐색 링크를 렌더링 하는 NavLink를 포함합니다. [ASP.NET Core의 NavLink](https://docs.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-5.0#navlink-component)와 같으며 사용자가 표시된 탐색 링크 중 어떤 페이지가 활성 페이지인지알 수 있으며, NavLink.ActiveClass에 CSS 클래스의 이름을 할당하여 데이터와 비교해 동적으로 변경할 수 있습니다.
+    
+  - #### 3.2.6 __Import.razor
+  
+    .razor와 같은 앱의 구성요소에 포함할 공통 네임스페이스에 대한 `@Using` 지시문을 포함합니다.
+    
+  - #### 3.2.7 Data 폴더
+  
+    일반적으로는 Database의 관리를 위한 폴더입니다.
+    Blazor Server의 기본 구성요소는 아래와 같습니다.
+    
+    * WeatherForecast.cs: Property 구성요소를 담은 클래스
+    * WeatherForecastService.cs: Data를 가져오는 Task 메소드를 담은 클래스
+    
+  - #### 3.2.8 wwwroot    
+    앱의 공개 정적 요소들이 포함된 [Web root](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/?view=aspnetcore-5.0&tabs=windows#web-root)입니다.
+    
+  - #### 3.2.9 appsetting.json
+    앱의 구성 설정을 저장한 파일입니다.
+    
+    * IConfiguration 인스턴스를 Razor 구성 요소에 삽입해 구성 데이터를 액세스할 수 있습니다.
+    * API, Authorize, DataBase ConnectionString 등의 인증을 구성합니다.
+    
+- ### 3.3. Blazor Layout
     블레이저로 프로젝트를 처음 생성하면 Shared파일의 MainLayout.razor에서 소스코드를 변경함으로서 Page의 Layout Template을 작성할 수 있습니다.   
     Blazor Layout의 모든 콘텐츠는 LayoutComponent Class의 하위 항목 쓰입니다.  
-    Blazor Layout은 Index.razor 페이지 내에서 정의 된 부분만 작동 됩니다.    
-
+    Blazor Layout은 Index.razor 페이지 내에서 정의 된 부분만 작동 됩니다. (Blazor Server만 포함)
+    
     `MainLayout.razor`   
     ```XML
     @inherits LayoutComponentBase
