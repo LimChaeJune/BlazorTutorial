@@ -192,4 +192,8 @@ TBD...
         </div>
     </div>
     ``` 
+- ### 3.4. Blazor Component
+    Component는 C# HTML 태그 조합으로 Blazor Razor 구성 요소 파일로 구현하는 것 입니다.
+    
+    
  
