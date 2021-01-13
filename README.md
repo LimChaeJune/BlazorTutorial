@@ -27,7 +27,7 @@ Blazor에는 두 가지의 호스팅 모델이 있습니다.
 SignalR 또한 오픈소스이며 [MSDN](https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/introduction-to-signalr)과 [GitHub](https://github.com/dotnet/aspnetcore/tree/master/src/SignalR)를 통해 더욱 자세한 정보를 알아볼 수 있습니다.
 - - -
 > **Blazor Server와 Blazor WASM은 모두 장단점이 있기 때문에 개발 목적에 맞게 선택하면 됩니다.**   
-**많은 수의 사용자가 사용하며, 민감한 코드가 있어 숨기지 않는 경우 - WASM   
+**많은 수의 사용자가 사용하며, 민감한 코드가 없어 숨기지 않는 경우 - WASM   
 성능이 중요하며, 브라우저에서 실행하지않고 싶은 민감한 코드가 있는 경우 - Server**
 ## 3. Blazor 시작하기
 * Blazor 필수사항
