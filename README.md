@@ -218,9 +218,10 @@ TBD...
           Component 클래스의 구성은 [@code](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#code) 블록 내에서 정의됩니다. 
           [@code](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#code) 블록에서는 Property, Fields 등과 그것들을 처리하는 Event와 Method들을 포함합니다.
           
-          다음은 동적 렌더링 예 입니다.
+          다음은 동적 렌더링 예 입니다. 
+          
           `DynamicRender`
-          ```html
+          ```csharp .cshtml
           <div class="@(visibllity ? "visible" : "collapse")">
             @text1
           </div>
