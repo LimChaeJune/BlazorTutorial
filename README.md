@@ -221,7 +221,7 @@ TBD...
           다음은 동적 렌더링 예 입니다. 
           
           `DynamicRender.razor`
-          ```Razor+
+          ```razor
           <div class="@(visibllity ? "visible" : "collapse")">
             @text1
           </div>
