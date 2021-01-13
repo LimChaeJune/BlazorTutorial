@@ -168,8 +168,7 @@ TBD...
     앱의 구성 설정을 저장한 파일입니다.
     
     * IConfiguration 인스턴스를 Razor 구성 요소에 삽입해 구성 데이터를 액세스할 수 있습니다.
-    * API, Authorize, DataBase ConnectionString 등의 인증을 구성합니다.
-    
+    * API, Authorize, DataBase ConnectionString 등의 인증을 구성합니다.    
 - ### 3.3. Blazor Layout
     블레이저로 프로젝트를 처음 생성하면 Shared파일의 MainLayout.razor에서 소스코드를 변경함으로서 Page의 Layout Template을 작성할 수 있습니다.   
     Blazor Layout의 모든 콘텐츠는 LayoutComponent Class의 하위 항목 쓰입니다.  
@@ -194,6 +193,48 @@ TBD...
     ``` 
 - ### 3.4. Blazor Component
     Component는 C# HTML 태그 조합으로 Blazor Razor 구성 요소 파일로 구현하는 것 입니다.
+    - #### 3.4.1 개요
+        - ##### Razor 구문
+          Blazor의 Razor 구성 요소는 Razor 구문을 사용합니다.
+          Razor 구문에 익숙하지 않다면 [MSDN Razor 구문 참조](https://docs.microsoft.com/ko-kr/aspnet/core/mvc/views/razor?view=aspnetcore-5.0)을 참고하는게 좋습니다.
+
+        - ##### 작명 
+          Component의 이름은 대문자로 시작 해야됩니다. ex) BlazorComponent.razor
+
+        - ##### Routing
+          Blazor의 라우팅은 앱에서 액세스 할 수 있는 각 구성 요소에 경로 템플릿을 제공하여 수행됩니다.  
+          [@page](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#page) 지시문이 있는 Razor 파일이 컴파일되면 생성 된 클래스에 경로 템플릿을 지정하는 [RouteAttribute](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.routeattribute?view=aspnetcore-5.0) 가 제공됩니다. 
+          런타임시 라우터는 [RouteAttribute](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.routeattribute?view=aspnetcore-5.0)가 있는 Component의 클래스를 찾고 요청 된 URL과 일치하는 경로의 Component를 렌더링합니다.              
+          `BlazorComponent.razor`
+          ```razor
+          @page "/BlazorComponent"        
+          ```
+
+        - ##### Markup(HTML)
+          Component의 UI는 HTML을 사용하여 정의됩니다.
+          Razor구문을 사용하기 때문에 C# 구문을 이용한 동적 렌더링 논리를 구성할 수 있습니다.
+          앱이 컴파일되면 HTML 태그와 C# 렌더링 논리가 Component의 클래스로 변환됩니다.
+
+          Component 클래스의 구성은 [@code](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#code) 블록 내에서 정의됩니다. 
+          [@code](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#code) 블록에서는 Property, Fields 등과 그것들을 처리하는 Event와 Method들을 포함합니다.
+          
+          다음은 동적 렌더링 예 입니다.
+          `DynamicRender`
+          ```html
+          <div class="@(visibllity ? "visible" : "collapse")">
+            @text1
+          </div>
+
+          @code{
+            private bool visibllity { get; set;} = false;
+            private string text1 { get; set; } = "my sample text"
+          }
+          ```
+
+
+      
+
+      
     
     
  
