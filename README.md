@@ -228,7 +228,7 @@ TBD...
 
           @code{
             private bool visibllity { get; set;} = false;
-            private string text1 { get; set; } = "my sample text."
+            private string text1 { get; set; } = "my sample text.".
           }
           ```
           
