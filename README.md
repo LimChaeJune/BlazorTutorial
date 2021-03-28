@@ -213,9 +213,11 @@ TBD...
         - ##### Markup(HTML)
           Component의 UI는 HTML을 사용하여 정의됩니다.
           Razor구문을 사용하기 때문에 C# 구문을 이용한 동적 렌더링 논리를 구성할 수 있습니다.
-          앱이 컴파일되면 HTML 태그와 C# 렌더링 논리가 Component의 클래스로 변환됩니다.
+          앱이 컴파일되면 HTML 태그와 C# 렌더링 논리가 Component의 클래스로 변환됩니다.        
 
           Component 클래스의 구성은 [@code](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#code) 블록 내에서 정의됩니다. 
+
+
           [@code](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#code) 블록에서는 Property, Fields 등과 그것들을 처리하는 Event와 Method들을 포함합니다.
           
           다음은 동적 렌더링 예 입니다. 
@@ -228,10 +230,71 @@ TBD...
 
           @code{
             private bool visibllity { get; set;} = false;
-            private string text1 { get; set; } = "my sample text.".
-          }...
+            private string text1 { get; set; } = "my sample text.";
+          }
           ```
+        - #### NameSpace
+          Component의 네임 스페이스는 앱의 루트 네임 스페이스와 앱 내 구성 요소의 위치에서 파생됩니다.
+          앱의 루트 네임 스페이스가 `BlazorTutorial`이고 구성 요소 파일이 `Pages`에 있는 경우
+        
+          - BlazorTutorial.Pages이란 네임 스페이스를 가지게 됩니다.
+
+          구성 요소를 포함하는 사용자 지정 폴더의 [@using]()의 경우 부모 구성 요소 또는 앱의 _Imports.razor 파일에 지시문을 추가 합니다.
           
+        - #### Partial Class 지원
+          Razor 구성 요소는 C# 코드를 2가지 방법 중 하나로 정의할 수 있습니다.
+
+            - Razor 코드와 HTML 태그가 있는 Razor 구성요소의 [@code](https://docs.microsoft.com/en-us/aspnet/core/mvc/
+            views/razor?view=aspnetcore-5.0#code)블록 을 만들어 안에 C# 을 정의
+              
+            `Pages/Counter.razor`
+            ```razor
+            <div class="@(visibllity ? "visible" : "collapse")">
+              @text1
+            </div>
+
+            @code{
+                private int currentCount = 0;
+                
+                void PlusCount()
+                {
+                  currentCount++;
+                }
+            }
+            ```
+            
+            - 코드 숨김 파일을 만들어 C# 을 정의 (Razor파일이 있는 폴더에 동일한 이름의 클래스를 .razor를 포함해 추가하면 됩니다.)
+
+            `Pages/Counter.razor`
+
+
+            ```razor
+            <div class="@(visibllity ? "visible" : "collapse")">
+              @text1
+            </div>
+            ```
+
+
+            `Pages/Counter.razor.cs`
+
+
+            ``` Csharp
+            @code{
+              namespace BlazorTutorial.Pages
+              {
+                  public partial class Counter
+                  {
+                      private int currentCount = 0;
+                      
+                      void PlusCount()
+                      {
+                        currentCount++;
+                      }
+                  }
+              }                           
+            ```
+
+
 
 
       
