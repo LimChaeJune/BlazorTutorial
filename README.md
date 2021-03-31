@@ -10,7 +10,7 @@ Blazor is a free and open-source web framework that enables developers to create
 Blazor에는 두 가지의 호스팅 모델이 있습니다. 
 - ### 2.1 Blazor Web Assembly - WASM
   * WASM는 클라이언트의 브라우저에서 실행되어 서버에 대한 네트워크 연결이 끊어져도 클라이언트 앱은 오프라인에서도 계속 작동할 수 있습니다.  클라이언트의 컴퓨터에서 실행되는 코드를 사용하면서 서버로드가 크게 줄어 듭니다.
-  * WASM은 데스크톱 및 모바일의 모든 최신 웹 브라우저에서 작동합니다.
+  * WASM은 데스크톱 및 모바일의 모든 최신 웹 브라우저에서 작동합니다..
   * WASM은 보안 샌드박스 내 사용자 장치에서 실행됩니다.
   * WASM은 서버 구성 요소없이 정적 사이트로 배포가 가능합니다. (API 제외)
   * blazor.webassembly.js 필요한 모든 .NET DLL 어셈블리를 다운로드하므로 응용 프로그램 시작 시간이 서버 쪽보다 느려집니다.
