@@ -218,7 +218,7 @@ TBD...
           Component 클래스의 구성은 [@code](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#code) 블록 내에서 정의됩니다. 
 
 
-          [@code](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#code) 블록에서는 Property, Fields 등과 그것들을 처리하는 Event와 Method들을 포함합니다.
+          [@code](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#code) 블록에서는 Property, Fields 등과 그것들을 처리하는 Event와 Method들을 포함 합니다.
           
           다음은 동적 렌더링 예 입니다. 
           
@@ -244,8 +244,7 @@ TBD...
         - #### Partial Class 지원
           Razor 구성 요소는 C# 코드를 2가지 방법 중 하나로 정의할 수 있습니다.
 
-            - Razor 코드와 HTML 태그가 있는 Razor 구성요소의 [@code](https://docs.microsoft.com/en-us/aspnet/core/mvc/
-            views/razor?view=aspnetcore-5.0#code)블록 을 만들어 안에 C# 을 정의
+            - Razor 코드와 HTML 태그가 있는 Razor 구성요소의 [@code](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#code) 블록 을 만들어 안에 C# 을 정의
               
             `Pages/Counter.razor`
             ```razor
