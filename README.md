@@ -293,6 +293,32 @@ TBD...
               }                   
             ``` 
              
+        - #### 기본클래스 지정
+          Razor 파일 안에 [@inherits](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0#inherits) 
+          Attribute를 통해 클래스를 상속 받아 기본 클래스를 지정할 수 있습니다.
+          
+        - #### 구성요소 매개변수
+          Component를 생성하면 부모 Component에서 자식 Component에 대해 Parameter를 전달할 수 있습니다.
+          
+          `Pages/Parent.razor.cs`
+                    
+          ```razor
+            <Child childParmas = 123 />
+          ```
+            
+                    
+          `Pages/Child.razor.cs`
+                    
+          ```razor
+            <div>
+              @childParamas.ToString()
+            </div>
+            
+            @code{
+              [Parameter] Public int childParams { get; set; }
+            }
+          ```
+           
  
  
 
